@@ -1,4 +1,4 @@
-# Daily challenge 01/02/2026: Flattened
+# Daily challenge 01/03/2026: Flattened
 #
 # Given an array, determine if it is flat.
 #

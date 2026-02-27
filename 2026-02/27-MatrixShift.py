@@ -31,7 +31,31 @@ from typing import TypedDict
 
 
 # Challenge
-def shift_matrix(matrix, shift):
+def shift_matrix(matrix: list, shift: int):
+    ubound = len(matrix) - 1
+    result = matrix
+    move = -1
+
+    if shift > 0: move = 1
+
+    while not shift == 0:
+        for i in range(0, ubound):
+            nextIndex = i + move
+            if nextIndex < 0: nextIndex = len(result) - 1
+            if nextIndex >= len(result): nextIndex = 0
+
+            if move == -1:
+                result[i].append(result[nextIndex][0])
+            else:
+                result[i].insert(0, result[nextIndex][-1])
+
+        for element in matrix:
+            if move == -1:
+                del element[0]
+            else:
+                del element[-1]
+
+        shift -= move
 
     return matrix
 
@@ -55,6 +79,8 @@ def test():
 
     for test in unitTest:
         n += 1
+        print(test['parameters'])
+        print(shift_matrix(test['parameters'][0], test['parameters'][1]))
         print(f"Test #{n} => ", end="")
 
         if shift_matrix(test['parameters'][0], test['parameters'][1]) == test['result']:

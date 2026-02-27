@@ -1,4 +1,4 @@
-# Daily challenge 02/02/2026: Sum the letters
+# Daily challenge 02/03/2026: Sum the letters
 #
 # Given a string, return the sum of its letters.
 #

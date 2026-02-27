@@ -1,4 +1,4 @@
-# Daily challenge 27/01/2026: Matrix Shift
+# Daily challenge 27/02/2026: Matrix Shift
 #
 # Given a matrix (array of arrays) of numbers and an integer, shift all values in the matrix by the given amount.
 #

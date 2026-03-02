@@ -8,8 +8,8 @@ from typing import TypedDict
 
 
 # Challenge
-def is_flat(arr: list) -> bool:
-    for element in arr:
+def is_flat(input: list) -> bool:
+    for element in input:
         if isinstance(element, list):
             return False
 

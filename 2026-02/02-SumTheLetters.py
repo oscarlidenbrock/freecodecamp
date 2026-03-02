@@ -9,6 +9,7 @@
 
 from typing import TypedDict
 
+
 # Challenge
 def sum_letters(phrase: str) -> int:
     # Convert the input to uppercase
@@ -26,6 +27,7 @@ def sum_letters(phrase: str) -> int:
 
     return result
 
+
 # Test
 def test():
     class UnitTest(TypedDict):
@@ -36,7 +38,9 @@ def test():
         {"value": "Hello", "result": 52},
         {"value": "freeCodeCamp", "result": 94},
         {"value": "The quick brown fox jumps over the lazy dog.", "result": 473},
-        { "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ex nisl, pretium eu varius blandit, facilisis quis eros. Vestibulum ante ipsum primis in faucibus orci.", "result": 1681},
+        {
+            "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ex nisl, pretium eu varius blandit, facilisis quis eros. Vestibulum ante ipsum primis in faucibus orci.",
+            "result": 1681},
         {"value": "</404>", "result": 0}
     ]
 
@@ -50,5 +54,6 @@ def test():
             print("OK\r")
         else:
             print("ERROR\r")
+
 
 test()

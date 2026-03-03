@@ -87,7 +87,10 @@ for test in json_data['python']['tests']:
         function_args = m.group(2)
         expected = m.group(3)
         params = function_args.strip()
+        pos = params.rfind("(")
+        if pos != -1: params = params[pos + 1:]
         result_value = expected.strip()
+        result_value = result_value.replace(')`', '')
         line = f'{{"parameters": [{params}], "result": {result_value}}},'
         unit_test_lines.append("        " + line)
 
@@ -127,7 +130,26 @@ os.makedirs(path, exist_ok=True)
 file_name = f"{date_obj.strftime('%d')}_{json_data['title'].lower().replace(' ', '-')}.py"
 file_path = os.path.join(path, file_name)
 
+# Check, if target file exist, the action
+if os.path.exists(file_path):
+    print("Do you want to overwrite the file or execute it?")
+    print("  [o] Overwrite")
+    print("  [e] Execute")
+
+    choice = input("Choose an option [o/e]: ").strip().lower()
+
+    match choice:
+        case "o":
+            pass  # Do nothing
+        case "e":
+            print(f"Executing {file_path}...\r\r")
+            os.system(f"{sys.executable} " + file_path)
+            sys.exit()
+        case _:
+            print("Invalid option. Exiting.")
+            sys.exit()
+
 with open(file_path, 'w', encoding='utf-8') as f:
     f.write(tpl)
 
-print(f"File saved in {file_path}")
+print(f"> File saved in {file_path}")

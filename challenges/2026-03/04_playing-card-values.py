@@ -25,13 +25,13 @@ def card_values(cards: list) -> list:
     """
     Return an array with the numeric value of each card given in cards array
     :param cards:
-    :return: array
+    :return: array with numeric values
     """
     result = []
     cardValue = 0
 
     for card in cards:
-        # remove color from string
+        # remove suit from card string (S/C/D/H)
         cardValue = card[:-1]
 
         # change card values (Ace = 1, J/Q/K = 10)

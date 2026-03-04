@@ -22,16 +22,19 @@ def add_punctuation(sentence: str) -> str:
     result = ""
     last_character = ""
 
-    for word in sentence:
-        if ord(word) >= ord("A") and ord(word) <= ord("Z") and last_character == " ":
-            # add end line dot
-            result = result[:-1] + ". " + word
-        else:
-            result += word
+    for char in sentence:
+        # If the current character is uppercase and the previous character is a space...
+        if ord(char) >= ord("A") and ord(char) <= ord("Z") and last_character == " ":
+            # Add a period to end the sentence
+            result = result[:-1] + ". "
 
-        last_character = word
+        # Add the current character to the result
+        result += char
 
-    # Add final dot
+        # Save the current character for the next iteration
+        last_character = char
+
+    # Add final end line dot
     result += "."
 
     return result

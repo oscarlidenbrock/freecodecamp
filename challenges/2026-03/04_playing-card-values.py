@@ -31,9 +31,10 @@ def card_values(cards: list) -> list:
     cardValue = 0
 
     for card in cards:
+        # remove color from string
         cardValue = card[:-1]
 
-        # change values
+        # change card values (Ace = 1, J/Q/K = 10)
         match cardValue:
             case "A": cardValue = 1
             case "J": cardValue = 10

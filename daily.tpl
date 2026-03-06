@@ -23,11 +23,18 @@ def test():
 
     for test in unitTest:
         n += 1
+        debug_messages.clear()
         print(f"Test #{n} => ", end="")
 
         if {{ test_function  }} == test['result']:
             print("OK\r")
         else:
             print("ERROR\r")
+
+debug_messages = []
+
+
+def debug(type, message):
+    debug_messages.append([type, message])
 
 test()

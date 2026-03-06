@@ -30,9 +30,16 @@ def test():
         result = {{ test_function  }}
         if result == test['result']:
             print("OK\r")
+
+            print(f"INPUT: ", test['parameters'])
+            print(f"RETURN: ", result)
             print("======================\r")
         else:
             print("ERROR\r")
+
+            print(f"INPUT: ", test['parameters'])
+            print(f"RETURN: ", result)
+            print(f"EXPECTED: ", test['result'])
             print("======================\r")
 
             print(f"INPUT: ", test['parameters'])

@@ -24,12 +24,31 @@ def test():
     for test in unitTest:
         n += 1
         debug_messages.clear()
+        print("======================")
         print(f"Test #{n} => ", end="")
 
-        if {{ test_function  }} == test['result']:
+        result = {{ test_function  }}
+        if result == test['result']:
             print("OK\r")
+            print("======================\r")
         else:
             print("ERROR\r")
+            print("======================\r")
+
+            print(f"INPUT: ", test['parameters'])
+            print(f"RETURN: ", result)
+            print(f"EXPECTED: ", test['result'])
+
+            if len(debug_messages) > 0:
+                print("DEBUG:")
+                for msg in debug_messages:
+                    print(f"", msg[0], ": ", msg[1])
+
+            print("")
+            answer = input("Continue with the next test? [y/n] ")
+            print("")
+
+            if not (answer == "y" or answer == ""): return
 
 debug_messages = []
 

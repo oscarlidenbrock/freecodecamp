@@ -42,10 +42,6 @@ def test():
             print(f"EXPECTED: ", test['result'])
             print("======================\r")
 
-            print(f"INPUT: ", test['parameters'])
-            print(f"RETURN: ", result)
-            print(f"EXPECTED: ", test['result'])
-
             if len(debug_messages) > 0:
                 print("DEBUG:")
                 for msg in debug_messages:

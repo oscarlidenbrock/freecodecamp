@@ -13,30 +13,41 @@ from typing import TypedDict
 
 # Challenge
 def jbelmu(text: str) -> str:
+    """
+    Create the jumbled version of an string
+    :param text: Input string
+    :return: Jumbled string
+    """
     result = ""
 
+    # get the words ot he string
     words = text.split()
     debug("words", words)
 
+    # transform all words in jumbled version
     for i in range(len(words)):
         word = words[i]
 
+        # Get the first character
         if len(word) > 0:
             first_char = word[0]
         else:
             first_char = ""
 
+        # Get the last character
         if len(word) > 1:
             last_char = word[-1]
         else:
             last_char = ""
 
+        # Get the other word excluding the first and last character
         word = word[1:-1]
 
         debug("first_char", first_char)
         debug("last_char", last_char)
         debug("word without first and last char", word)
 
+        # Order alphabetically the body of the word and append the first and last character
         words[i] = first_char + "".join(sorted(word)) + last_char
         debug("jumbled word", word)
 

@@ -10,13 +10,11 @@
 # "-": Untraversable parts of the map
 # 
 # Return a string with the moves needed to follow the trail from your location to your goal where:
-# 
-# 
+#
 # "R" is a move right
 # "D" is a move down
 # "L" is a move left
 # "U" is a move up
-# 
 # 
 # There will always be a single continuous trail, without any branching, from your current location to your goal.
 # Each trail location will have a maximum of two traversable locations touching it.
@@ -44,7 +42,7 @@ def navigate_trail(map: list) -> str:
     """
     result = ""
 
-    # Find the current position (C) and the goal (G)
+    # Set the current position (C) and the goal (G) as 0,0
     c_pos = [0, 0]
     g_pos = [0, 0]
 

@@ -55,6 +55,7 @@ def navigate_trail(map: list) -> str:
         for c in range(len(row)):
             char = row[c]
 
+            # When they are found on the map, set the current position (C) and the goal (G)
             if char == "C": c_pos = [c, r]
             if char == "G": g_pos = [c, r]
 

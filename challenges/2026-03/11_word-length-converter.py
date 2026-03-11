@@ -32,7 +32,7 @@ def convert_words(string: str):
     # Join the words back into a single string
     result = " ".join(words)
 
-    return resultg
+    return result
 
 # Test
 def test():

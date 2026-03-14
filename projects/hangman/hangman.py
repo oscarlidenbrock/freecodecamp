@@ -1,46 +1,50 @@
 import random
 import re
 def main():
+    """
+    Hangman game that tries to auto-complete the word.
+    """
     print("\n===========\n  HANGMAN\n===========\n")
 
-    # Leer el diccionario
+    # Load the dictionary from file
     with open("dictionary.txt", "r", encoding="utf-8") as f:
         dictionary = f.read()
 
-    # Preguntar por una palabra
-    secret_word = input("Do you want to enter the word to guess? (leave empty to get a random word from the dictionary): ")
+    # Ask the player to enter a word to guess
+    secret_word = input(
+        "Do you want to enter the word to guess? (leave empty to get a random word from the dictionary): "
+    )
 
-    # Si no se ha introducido, obtener una palabra random del diccionario
+    # If no word is entered, pick a random word from the dictionary
     if secret_word == "":
         secret_word = random.choice(re.findall(r"[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]+", dictionary))
         secret_word = re.split(r'[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+', secret_word)[0]
 
-    # Crear el patrón de la palabra secreta
+    # Initialize the secret word pattern with underscores
     pattern_word = "_" * len(secret_word)
 
     print("Word to find: " + secret_word)
     print("")
 
-    # Intentar encontrar la palabra en x intentos
+    # Try to guess the word within a fixed number of attempts
     attempt = 0
-    blacklist = []
-    whitelist = []
+    blacklist = []  # letters guessed incorrectly
+    whitelist = []  # letters guessed correctly
 
     while attempt < 10:
         attempt += 1
         search_word_result = search_word_by_pattern(pattern_word, whitelist, blacklist, dictionary)
         next_attempt = search_word_result[0]
 
-        # Rellena el pattern con la letra, si existe
+        # Fill in the pattern with the correctly guessed letter
         next_pattern_word = ""
-
         for i in range(len(secret_word)):
             if secret_word[i] == next_attempt:
                 next_pattern_word += next_attempt
             else:
                 next_pattern_word += pattern_word[i]
 
-        # Actuliza el patter y añade el intento al whitelist o al blacklist
+        # Update the pattern and add the guessed letter to the whitelist or blacklist
         if pattern_word != next_pattern_word:
             whitelist.append(next_attempt)
         else:
@@ -48,44 +52,54 @@ def main():
 
         pattern_word = next_pattern_word
 
-        print("Attempt #", str(attempt), ":")
-        print("  letter: ", next_attempt, "(" + str(search_word_result[1]) + "%)")
+        print("Attempt #", attempt, ":")
+        print("  letter: ", next_attempt, "(" + str(search_word_result[1]) + "% probability)")
         print("    word: ", pattern_word)
 
-        # Comprueba si has ganado
+        # Check if the word has been fully guessed
         if pattern_word == secret_word:
             print("\nYOU WIN!!\n")
             quit()
 
-    # Después de 10 intentos, si no se ha encontrado la palabra, has perdido
-    print("\nYOU LOOSE!!\n")
+    # If the word was not guessed after the maximum attempts, the player loses
+    print("\nYOU LOSE!!\n")
+
 
 def search_word_by_pattern(pattern: str, whitelist: list, blacklist: list, dictionary: str) -> list:
-    # Busca todas las palabras en el diccionario que coincidan con el pattern
+    """
+    Returns the next most probable letter based on the current pattern.
+
+    :param pattern: Word pattern with undiscovered letters represented as underscores (_)
+    :param whitelist: Letters that have been correctly guessed
+    :param blacklist: Letters that have been guessed incorrectly
+    :param dictionary: Full word dictionary
+    :return: List containing the most probable letter and its probability percentage
+    """
+    # Build a regex to match words that fit the current pattern and exclude blacklisted letters
     if len(blacklist) > 0:
         regex = "(?!.*[" + "".join(blacklist) + "])" + pattern.replace("_", "\\w")
     else:
         regex = pattern.replace("_", "\\w")
 
+    # Find all matching words from the dictionary
     valid_words = re.findall(regex, dictionary)
 
-    # Cuenta cuantas letras contienen las palabras
+    # Count occurrences of letters in the matching words
     letters = {}
-
     for word in valid_words:
         word = word.lower()
-
         for letter in word:
-            if not letter in blacklist and not letter in whitelist:
+            if letter not in blacklist and letter not in whitelist:
                 letters[letter] = letters.get(letter, 0) + 1
 
-    # Obtén cual es la letra con más coincidencias
+    # Get the letter with the highest frequency
     max_key = max(letters, key=letters.get)
 
-    # Obtén el % de probabilidad
+    # Calculate the probability percentage
     total = sum(letters.values())
     percent = round(letters[max_key] / total * 100)
 
     return [max_key, percent]
+
 
 main()

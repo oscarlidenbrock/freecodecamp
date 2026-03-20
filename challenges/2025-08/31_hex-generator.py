@@ -20,28 +20,36 @@ import random
 # Challenge
 def generate_hex(color: str) -> str:
     """
-    Return a hexadecimal color code with a given Red/Green/Blue dominant color
-    :param color: The dominant color
-    :return: the hexadecimal color
+    Generate a hexadecimal color string where one RGB channel (red, green, or blue)
+    is dominant with a random intensity.
+
+    :param color: The dominant color ("red", "green", or "blue")
+    :return: A hexadecimal color string (e.g., "ff0000") or "Invalid color"
     """
 
     result = ""
 
     match color:
         case "red":
-            # Set red color in random value from 1 to 255
+            # Generate a random intensity for the red channel (1–255)
+            # Green and blue channels are set to 0
             random_color = random.randint(1, 255)
             result = str(hex(random_color)[2:]) + "0000"
+
         case "green":
-            # Set green color in random value from 1 to 255
+            # Generate a random intensity for the green channel (1–255)
+            # Red and blue channels are set to 0
             random_color = random.randint(1, 255)
             result = "00" + str(hex(random_color)[2:]) + "00"
+
         case "blue":
-            # Set blue color in random value from 1 to 255
+            # Generate a random intensity for the blue channel (1–255)
+            # Red and green channels are set to 0
             random_color = random.randint(1, 255)
             result = "0000" + str(hex(random_color)[2:])
+
         case _:
-            # Otherwise, return "Invalid color"
+            # Return an error message if the input color is not valid
             return "Invalid color"
 
     return result

@@ -127,7 +127,10 @@ date_obj = datetime.strptime(arg, "%Y-%m-%d")
 path = os.path.join(os.path.dirname(__file__), 'challenges', date_obj.strftime("%Y-%m"))
 os.makedirs(path, exist_ok=True)
 
-file_name = f"{date_obj.strftime('%d')}_{json_data['title'].lower().replace(' ', '-')}.py"
+file_name_title = json_data['title'].lower().replace(' ', '-')
+file_name_title = re.sub(r'[^a-zA-Z0-9-]', '', file_name_title)
+
+file_name = f"{date_obj.strftime('%d')}_{file_name_title}.py"
 file_path = os.path.join(path, file_name)
 
 # Check, if target file exist, the action

@@ -1,0 +1,84 @@
+{
+  "info": {
+    "title": "Test questions",
+    "topic": "Irregular English verbs",
+    "language": "English"
+  },
+  "questions": [
+    {
+      "question": "Fill in the blank with the correct past tense of 'to go': Yesterday, I ____ to the museum.",
+      "type": "open",
+      "answer": "went"
+    },
+    {
+      "question": "Choose the correct past participle of 'to write': She has ____ three novels so far.",
+      "type": "choice",
+      "choices": [
+        "writed",
+        "written",
+        "wrote"
+      ],
+      "answer": "written"
+    },
+    {
+      "question": "Complete the sentence with the correct form of 'to begin': The concert ____ at 8 p.m. sharp.",
+      "type": "open",
+      "answer": "began"
+    },
+    {
+      "question": "Select the correct past tense of 'to choose': He ____ the red car instead of the blue one.",
+      "type": "choice",
+      "choices": [
+        "choose",
+        "chose",
+        "chosen"
+      ],
+      "answer": "chose"
+    },
+    {
+      "question": "Fill in the blank with the past participle of 'to take': Have you ____ your medicine today?",
+      "type": "open",
+      "answer": "taken"
+    },
+    {
+      "question": "Choose the correct past tense of 'to speak': Yesterday, the teacher ____ about Shakespeare.",
+      "type": "choice",
+      "choices": [
+        "speaked",
+        "spoken",
+        "spoke"
+      ],
+      "answer": "spoke"
+    },
+    {
+      "question": "Complete the sentence with the past participle of 'to see': I have ____ that movie three times already.",
+      "type": "open",
+      "answer": "seen"
+    },
+    {
+      "question": "Select the correct past tense of 'to run': Last week, we ____ 10 kilometers in the park.",
+      "type": "choice",
+      "choices": [
+        "runned",
+        "ran",
+        "run"
+      ],
+      "answer": "ran"
+    },
+    {
+      "question": "Fill in the blank with the past participle of 'to do': Have you ever ____ yoga before?",
+      "type": "open",
+      "answer": "done"
+    },
+    {
+      "question": "Choose the correct past tense of 'to eat': He ____ all the pizza by himself.",
+      "type": "choice",
+      "choices": [
+        "eated",
+        "ate",
+        "eaten"
+      ],
+      "answer": "ate"
+    }
+  ]
+}

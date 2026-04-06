@@ -1,0 +1,28 @@
+{
+	"info": {
+		"title": "Test questions",
+		"default_image": "default.jpg",
+		"folder": "English learning",
+		"language": "English"
+	},
+
+	"questions": [
+		{
+			"question": "Cuanto es 2 + 2?",
+			"type": "open",
+			"answer": "4|cuatro",
+			"image": "image1.jpg",
+			"sound": "sound1.mp3"
+		},
+		{
+			"question": "Como me llamo?",
+			"type": "choice",
+			"choices": [
+				"Oscar",
+				"Pepe",
+				"Federico"
+			],
+			"answer": "Oscar"
+		}
+	]
+}

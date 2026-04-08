@@ -22,8 +22,7 @@ def speeding(speeds: list, limit: int) -> list:
                            (0 if no vehicles were speeding)
     """
 
-    # result[0] → count of speeding vehicles
-    # result[1] → average excess speed over the limit
+    # Create the result list
     result = [0, 0]
 
     # Stores how much each speeding vehicle exceeded the limit

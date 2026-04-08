@@ -31,29 +31,20 @@ def is_fizz_buzz(arr: list) -> bool:
     :return: True if the sequence is valid, False otherwise
     """
 
-    # Create a working copy to reconstruct the expected numeric sequence
+    # Copy used to reconstruct the implicit integer sequence
     real_values = arr.copy()
 
     for v in range(len(real_values)):
         value = real_values[v]
 
-        # Find the first integer to use as a reference point (anchor)
+        # Use the first integer as an anchor to derive the full sequence
         if isinstance(value, int):
-            # Fill preceding values based on the anchor
-            temp_value_mod = -1
+            # Compute the sequence origin so that index v matches 'value'
+            first_value = value - v
 
-            for w in range(v - 1, -1, -1):
-                real_values[w] = value + temp_value_mod
-                temp_value_mod -= 1
-
-            # Fill following values based on the anchor
-            temp_value_mod = 1
-
-            for w in range(v + 1, len(real_values)):
-                real_values[w] = value + temp_value_mod
-                temp_value_mod += 1
-
-            break
+            # Rebuild the full linear sequence: first_value, first_value+1, ...
+            for i in range(len(real_values)):
+                real_values[i] = first_value + i
 
     debug("real values", real_values)
 

@@ -97,3 +97,18 @@ def debug(type, message):
     debug_messages.append([type, message])
 
 test()
+
+
+
+answer = None
+
+if answer is not None:
+    print("has respondido")
+
+if answer == True:
+    print("has respondido correctamente")
+
+if True == None:
+    print("esto no pasa porque True no es None")
+
+    

@@ -19,7 +19,7 @@ from typing import TypedDict
 
 
 # Challenge
-def rook_attack(rook1, rook2):
+def rook_attack(rook1: str, rook2: str) -> bool:
     """
     Determine whether two rooks can attack each other on a chessboard.
     A rook can attack another piece if both are on the same row or column.

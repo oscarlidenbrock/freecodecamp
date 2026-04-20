@@ -8,6 +8,12 @@ from typing import TypedDict
 
 # Challenge
 def get_unique_climbs(steps: int) -> int:
+    """
+    Given a number of stairs, return how many distinct ways someone can climb them taking either 1 or 2 steps at a time.
+
+    :param steps: The number of stairs.
+    :return: The number of distinct ways someone can climb the stairs.
+    """
     if steps <= 1:
         return 1
 

@@ -15,7 +15,7 @@ from typing import TypedDict
 # Challenge
 def find_sum(numbers: list, target: int) -> list | str:
     """
-    Return the first subset whose values add up to ``target``.
+    Return the first subset whose values add up to "target".
 
     The search is performed recursively from left to right. At each position
     the function first tries including the current number and then skipping it,

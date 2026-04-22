@@ -27,7 +27,7 @@ def find_sum(numbers: list, target: int) -> list | str:
 def sum_recursively(total: int, numbers: list) -> list:
     """
     Search recursively for the first subset of at least two numbers that
-    produces ``total``.
+    produces "total".
 
     The helper walks through the list from left to right. At each position it
     first tries including the current number, then tries skipping it. Because
@@ -40,8 +40,8 @@ def sum_recursively(total: int, numbers: list) -> list:
         Recursively build candidate subsets until every number has been
         considered.
 
-        ``index`` tracks the next position to inspect, ``current`` stores the
-        subset built so far, and ``current_total`` is the running sum for that
+        "index" tracks the next position to inspect, "current" stores the
+        subset built so far, and "current_total" is the running sum for that
         subset.
         """
 

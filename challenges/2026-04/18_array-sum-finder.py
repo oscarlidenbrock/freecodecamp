@@ -17,22 +17,9 @@ def find_sum(numbers: list, target: int) -> list | str:
     """
     Return the first subset whose values add up to ``target``.
 
-    The function delegates the actual search to ``sum_recursively`` and only
-    converts an empty result into the challenge response ``"Sum not found"``.
-    """
-    result = sum_recursively(target, numbers)
-
-    return result if result else "Sum not found"
-
-def sum_recursively(total: int, numbers: list) -> list:
-    """
-    Search recursively for the first subset of at least two numbers that
-    produces "total".
-
-    The helper walks through the list from left to right. At each position it
-    first tries including the current number, then tries skipping it. Because
-    inclusion is explored first, the first valid subset found matches the
-    challenge rule that favors earlier indices.
+    The search is performed recursively from left to right. At each position
+    the function first tries including the current number and then skipping it,
+    which preserves the challenge rule that prioritizes earlier indices.
     """
 
     def search(index: int, current: list, current_total: int) -> list:
@@ -45,11 +32,15 @@ def sum_recursively(total: int, numbers: list) -> list:
         subset.
         """
 
+        # Base case: once every position has been considered, only return
+        # subsets that meet both challenge conditions.
         if index == len(numbers):
-            if len(current) >= 2 and current_total == total:
+            if len(current) >= 2 and current_total == target:
                 return current.copy()
             return []
 
+        # Try the branch that keeps the current value first so earlier indices
+        # are prioritized in the first valid result.
         with_current = search(
             index + 1,
             current + [numbers[index]],
@@ -59,10 +50,11 @@ def sum_recursively(total: int, numbers: list) -> list:
         if with_current:
             return with_current
 
+        # If including the current value does not work, continue without it.
         return search(index + 1, current, current_total)
 
-    # Start with an empty subset and inspect numbers from the first index.
-    return search(0, [], 0)
+    result = search(0, [], 0)
+    return result if result else "Sum not found"
 
 
 # Test

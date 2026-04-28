@@ -16,6 +16,7 @@ from typing import TypedDict
 def calculate_tips(meal_price: str, custom_tip: str) -> list[str]:
     """
     Returns a list of three strings representing the tip amounts.
+
     :param meal_price: The price of the meal.
     :param custom_tip: The custom tip percentage.
     :return: The list of three strings representing the tip amounts.

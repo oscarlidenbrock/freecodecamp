@@ -23,8 +23,31 @@ from typing import TypedDict
 
 # Challenge
 def wise_speak(sentence: str) -> str:
+    """
+    Given a sentence, return a version of it that sounds like advice from a wise teacher.
 
-    return sentence
+    :param sentence: The sentence to be modified.
+    :return: The modified sentence.
+    """
+
+    wise_words = {"have", "must", "are", "will", "can"}
+
+    # Keep the final punctuation aside so it can be restored at the end.
+    punctuation = sentence[-1]
+    words = sentence[:-1].split(" ")
+
+    # Find the first wise word and split the sentence around it.
+    for index, word in enumerate(words):
+        if word.lower() in wise_words:
+            start = words[index + 1:]
+            end = [moved_word.lower() for moved_word in words[:index + 1]]
+            break
+
+    # Rebuild the sentence with the moved words after a comma.
+    new_sentence = " ".join(start) + ", " + " ".join(end) + punctuation
+
+    # Capitalize only the first character of the final sentence.
+    return new_sentence[0].upper() + new_sentence[1:]
 
 # Test
 def test():

@@ -12,7 +12,12 @@ from typing import TypedDict
 
 # Challenge
 def favorite_songs(playlist: list[dict]) -> list[str]:
+    """
+    Return the two most played songs.
 
+    :param playlist: The playlist.
+    :return: The two most played songs.
+    """
 
 
 # Test

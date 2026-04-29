@@ -11,7 +11,7 @@ from typing import TypedDict
 
 
 # Challenge
-def favorite_songs(playlist):
+def favorite_songs(playlist: list[dict]) -> list[str]:
 
     return playlist
 

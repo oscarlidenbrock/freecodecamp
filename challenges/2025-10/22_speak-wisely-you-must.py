@@ -22,7 +22,7 @@ from typing import TypedDict
 
 
 # Challenge
-def wise_speak(sentence):
+def wise_speak(sentence: str) -> str:
 
     return sentence
 

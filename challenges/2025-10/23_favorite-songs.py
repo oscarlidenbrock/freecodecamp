@@ -19,6 +19,11 @@ def favorite_songs(playlist: list[dict]) -> list[str]:
     :return: The two most played songs.
     """
 
+    # Sort songs from highest play count to lowest play count.
+    sorted_playlist = sorted(playlist, key=lambda song: song["plays"], reverse=True)
+
+    # Keep only the first two songs and return their titles in ranking order.
+    return [song["title"] for song in sorted_playlist[:2]]
 
 # Test
 def test():

@@ -18,7 +18,9 @@ def count_words(sentence: str) -> int:
     :return: Returns the number of words in the sentence.
     """
 
-    return sentence
+    sentence = sentence.split(" ")
+
+    return len(sentence)
 
 # Test
 def test():

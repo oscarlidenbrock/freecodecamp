@@ -10,7 +10,13 @@ from typing import TypedDict
 
 
 # Challenge
-def count_words(sentence):
+def count_words(sentence: str) -> int:
+    """
+    Return the number of words in the sentence.
+
+    :param sentence: The sentence to count words in.
+    :return: Returns the number of words in the sentence.
+    """
 
     return sentence
 

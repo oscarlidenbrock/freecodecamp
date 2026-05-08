@@ -12,8 +12,14 @@ from typing import TypedDict
 
 # Challenge
 def combinations(cards: int) -> int:
+    deck_size = 52
+    cards = min(cards, deck_size - cards)
+    result = 1
 
-    return cards
+    for card in range(1, cards + 1):
+        result = result * (deck_size - cards + card) // card
+
+    return result
 
 # Test
 def test():

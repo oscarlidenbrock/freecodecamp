@@ -11,7 +11,7 @@ from typing import TypedDict
 
 
 # Challenge
-def combinations(cards):
+def combinations(cards: int) -> int:
 
     return cards
 

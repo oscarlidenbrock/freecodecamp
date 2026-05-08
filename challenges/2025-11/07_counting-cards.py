@@ -12,10 +12,21 @@ from typing import TypedDict
 
 # Challenge
 def combinations(cards: int) -> int:
+    """
+    Return the number of unique combinations of cards you can pick.
+
+    :param cards: The number of cards to pick from the deck.
+    :return: The number of unique combinations of cards you can pick.
+    """
+
+    # Deck size is 52
     deck_size = 52
+
+    # Adjust the number of cards to pick if it exceeds the deck size
     cards = min(cards, deck_size - cards)
     result = 1
 
+    # Calculate the number of unique combinations
     for card in range(1, cards + 1):
         result = result * (deck_size - cards + card) // card
 

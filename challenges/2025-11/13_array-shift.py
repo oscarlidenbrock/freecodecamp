@@ -22,7 +22,11 @@ def shift_array(arr: list, n: int) -> list:
     :return: Returns the shifted array
     """
 
+    if len(arr) == 0:
+        return []
 
+    shift = n % len(arr)
+    return arr[shift:] + arr[:shift]
 
 # Test
 def test():

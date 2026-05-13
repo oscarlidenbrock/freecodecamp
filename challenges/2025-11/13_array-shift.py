@@ -14,8 +14,15 @@ from typing import TypedDict
 
 # Challenge
 def shift_array(arr: list, n: int) -> list:
+    """
+    Shift the array to the left by n positions.
 
-    return arr
+    :param arr: Array to shift
+    :param n: The number of positions to shift the array
+    :return: Returns the shifted array
+    """
+
+
 
 # Test
 def test():

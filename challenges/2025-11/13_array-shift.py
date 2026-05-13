@@ -13,7 +13,7 @@ from typing import TypedDict
 
 
 # Challenge
-def shift_array(arr, n):
+def shift_array(arr: list, n: int) -> list:
 
     return arr
 
